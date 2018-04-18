@@ -1,0 +1,38 @@
+net: "examples/bk_imagenet/architectures/256/resnet50.prototxt"
+#net: "examples/bk_imagenet/architectures/resnet50noReLU.prototxt"
+#net: "examples/bk_imagenet/architectures/2ndOrder50Imagenet.prototxt"
+#net: "examples/bk_imagenet/architectures/2ndOrder50noReLU.prototxt"
+
+test_iter: 1000
+test_interval: 500
+display: 500
+average_loss: 500
+test_initialization: false
+
+base_lr: 0.05
+max_lr:  1
+lr_policy: "1cycle"  # "step" # "multistep"
+#gamma: 0.94
+stepsize:    95000
+max_iter:   200000  # 20 epochs
+
+#max_iter: 1200000
+#stepvalue:  700000
+#stepvalue:  950000
+#stepvalue: 1100000
+#stepvalue: 1150000
+
+momentum: 0.95
+cyclical_momentum: 0.85
+cyclical_momentum: 95000
+weight_decay: 1e-5
+
+snapshot: 25000
+snapshot_prefix: "examples/bk_imagenet/snapshots/resnetCM9585CLR.051WD1e-5BS32_20Epochs"
+#snapshot_prefix: "examples/bk_imagenet/snapshots/resnetCM9893CLR1WD1e-7"
+#snapshot_prefix: "examples/bk_imagenet/snapshots/2ndOrder"
+
+solver_mode: GPU
+type: "Nesterov"
+#type: "Adam"
+#iter_size: 2

@@ -1,0 +1,30 @@
+net: "examples/skipConnections/architectures/aarch.prototxt"
+#net: "examples/skipConnections/architectures/resnet56.prototxt"
+#net: "examples/skipConnections/architectures/2ndOrder56.prototxt" 
+#
+test_iter: 200
+test_interval: 200
+display: 200
+test_initialization: false
+
+lr_policy: "1cycle" # "triangular" 
+base_lr: xLR1
+max_lr:  xLR2
+stepsize: 20000
+max_iter: 20000 
+
+snapshot: 20000
+snapshot_prefix: "examples/skipConnections/snapshots/xResnet56"
+#snapshot_prefix: "examples/skipConnections/snapshots/range2ndOrder56Mom7"
+solver_mode: GPU
+
+weight_decay: xwd
+momentum: xmom
+
+#regularization_type: "L1"
+type:  "Nesterov" # "RMSProp" # "Adam" #   "AdaGrad"  #
+#type:  "Adam" #   "AdaDelta"  #
+#rms_decay: 0.9
+#clip_gradients: 10
+#iter_size: 4
+#debug_info: true

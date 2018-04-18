@@ -1,0 +1,42 @@
+#net: "examples/bk_imagenet/architectures/resnet50.prototxt"
+#net: "examples/bk_imagenet/architectures/fullResnet50.prototxt"
+#net: "examples/bk_imagenet/architectures/resnet50noReLU.prototxt"
+#net: "examples/bk_imagenet/architectures/2ndOrder50Imagenet.prototxt"
+#net: "examples/bk_imagenet/architectures/2ndOrder50noReLU.prototxt"
+net: "examples/bk_imagenet/architectures/inception-resnet-v2.prototxt"
+#net: "examples/bk_imagenet/architectures/inception-2ndOrder.prototxt"
+
+test_iter: 1000
+test_interval: 500
+display: 500
+average_loss: 500
+test_initialization: false
+
+base_lr: 0.1
+#max_lr:  0.2
+lr_policy: "step" #  "multistep"
+gamma: 0.94
+stepsize:    20000
+max_iter:  1600000
+
+#stepvalue:  700000
+#stepvalue: 1000000
+#stepvalue: 1100000
+
+momentum: 0.9
+#cyclical_momentum: 0.93
+#cyclical_momentum: 100000
+weight_decay: 1e-4
+
+snapshot: 20000
+snapshot_prefix: "examples/bk_imagenet/snapshots/inception-resnetM9LR1WD1e-4BS28"
+#snapshot_prefix: "examples/bk_imagenet/snapshots/inception-resnetCM9893CLR1WD1e-7"
+#snapshot_prefix: "examples/bk_imagenet/snapshots/ResnetCycMom"
+#snapshot_prefix: "examples/bk_imagenet/snapshots/2ndOrder"
+
+solver_mode: GPU
+type: "Nesterov"
+#type: "Adam"
+#clip_gradients: 1.0
+#iter_size: 4
+#debug_info: true

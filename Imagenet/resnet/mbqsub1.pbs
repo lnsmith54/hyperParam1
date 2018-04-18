@@ -1,0 +1,34 @@
+#!/bin/bash
+#PBS -l walltime=72:00:00
+#PBS -l select=1:ncpus=24:mpiprocs=24:ngpus=4:powerai=on
+#PBS -l place=scatter:excl
+#PBS -N ResIm100E1
+#PBS -j oe
+#PBS -V
+#PBS -q standard
+#PBS -A MHPCC96650NRL
+
+exit
+
+. /usr/share/Modules/init/sh
+module load glog/0.3.3
+module load gflags/2.2.0
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/gpfs/pkgs/mhpcc/protobuf/lib:/gpfs/pkgs/mhpcc/boost/lib:/gpfs/pkgs/mhpcc/lmdb/lib:/gpfs/pkgs/mhpcc/leveldb/lib:/gpfs/pkgs/mhpcc/opencv-3.4.0/lib64
+
+cd /gpfs/scratch/lnsmith/deepLearning/caffe/9-11-17/
+
+./examples/bk_imagenet/queues/resnet/btrain1.sh
+
+qsub ./examples/bk_imagenet/queues/resnet/bqsub1.pbs
+
+exit
+#module use $PROJECTS_HOME/datools/modulefiles
+#module load anaconda/2
+#module load caffe/5.0
+#module list
+
+#cd /gpfs/scratch/lnsmith/deepLearning/fewTrainingData/imagenet
+
+#./examples/bk_imagenet/train.sh
+

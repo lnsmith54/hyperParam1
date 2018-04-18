@@ -1,0 +1,34 @@
+#net: "examples/bk_imagenet/architectures/fullResnet50.prototxt"
+net: "examples/bk_imagenet/architectures/resnet50noReLU.prototxt"
+#net: "examples/bk_imagenet/architectures/2ndOrder50Imagenet.prototxt"
+#net: "examples/bk_imagenet/architectures/2ndOrder50noReLU.prototxt"
+
+test_iter: 1000
+test_interval: 1000
+display: 200
+average_loss: 1000
+
+base_lr: .1
+#max_lr:  0.15
+lr_policy: "multistep"
+gamma: 0.1
+stepsize:   100000
+
+max_iter:   300000
+#max_iter: 1200000
+
+stepvalue:  700000
+stepvalue:  950000
+stepvalue: 1100000
+stepvalue: 1150000
+
+momentum: 0.9
+weight_decay: 0.0001
+
+snapshot: 50000
+snapshot_prefix: "examples/bk_imagenet/snapshots/Resnet56NoReLUs"
+#snapshot_prefix: "examples/bk_imagenet/snapshots/2ndOrder"
+
+solver_mode: GPU
+#type: "Nesterov"
+#type: "Adam"

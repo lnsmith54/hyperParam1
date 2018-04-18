@@ -1,0 +1,41 @@
+net: "examples/skipConnections/architectures/aarch.prototxt"
+#net: "examples/skipConnections/architectures/resnet56.prototxt"
+#net: "examples/skipConnections/architectures/2ndOrder56.prototxt" 
+
+test_iter: 200
+test_interval: 200
+display: 200
+max_iter: xIter
+test_initialization: false
+
+# The base learning rate, momentum and the weight decay of the network.
+lr_policy: "multistep"
+base_lr: xLR1
+stepvalue: xSV1 # 30000
+stepvalue: xSV2 #45000
+stepvalue: xSV3 #52000
+stepvalue: xSV4 #56000
+stepvalue: xSV5 #58500
+gamma: 0.316
+
+weight_decay: xwd
+momentum: xmom1
+#decrease_weight_decay: xWD
+cyclical_momentum: xmom2
+cyclical_momentum: xStep
+
+# snapshot intermediate results
+snapshot: xIter
+snapshot_prefix: "examples/skipConnections/snapshots/xResnet56"
+#snapshot_prefix: "examples/skipConnections/snapshots/2ndOrder"
+
+solver_mode: GPU
+#regularization_type: "L1"
+type:  "Nesterov" # "RMSProp" # "Adam" #   "AdaGrad"  #
+#type:  "Adam" #   "AdaDelta"  #
+#rms_decay: 0.9
+#clip_gradients: 10
+#iter_size: 4
+#debug_info: true
+#average_loss: 50
+
