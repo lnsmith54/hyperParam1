@@ -1,1 +1,9 @@
 # hyperParam1
+
+Here are some of the Caffe files of my recent NRL Technical Report : Smith, Leslie N. "A disciplined approach to neural network hyper-parameters: Part 1 - learning rate, batch size, momentum, and weight decay" arXiv preprint arXiv:1803.09820 (2018). Please read the report for details. The report is based on over a thousand experiments, with each experiment consisting of four runs to determine the mean and standard deviation of the reported results.  Due to the large number of experiments, all the files are not included but the basic files that enable replication of the results should be present.
+
+This repository contains two folders: Cifar and Imagenet.  By far, most of the experiments were with Cifar and there are results for both Cifar-10 and Cifar-100.  In this folder are a few versions of the train.sh script, solver.prototxt file, and the scripts used for modifying and submitting the jobs on my system.  While the submission scripts are tailored only for my system/environment, they can provide guidance as to the jobs run.  In this folder is the architectures folder that contains the architectures used for the experiments.  Also included is a few of the output files in the folder called results.  These output files might help in replicating my work.
+
+The Imagenet folder contains 4 folders: architectures, inception, resnet, and results.  The resnet and inception prototxt files are in the architectures folder.  The inception folder contains my system's submission files, the train.sh scripts, and the solver.prototxt files for running the inception experiments.  The resnet folder contains my system's submission files, the train.sh scripts, and the solver.prototxt files for running the resnet experiments.  Some of the outputs are contained in the results folder.
+
+The files in this repository are not sufficient to replicate all of the results in the report but they do contain the information that makes replication possible.
